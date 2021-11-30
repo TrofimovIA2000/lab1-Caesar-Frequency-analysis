@@ -154,3 +154,30 @@ for k in monograms.keys():
 
 print(tEncDic)
 
+lostKeys = []
+lostValues = []
+
+for sign in alphabet:
+    if not(sign in tEncDic.keys()):
+        lostKeys.append(sign)
+
+for sign in alphabet:
+    if not(sign in tEncDic.values()):
+        lostValues.append(sign)
+
+print(lostKeys)
+print(lostValues)
+
+for i in range(len(lostKeys)):
+    tEncDic.setdefault(lostKeys[i], lostValues[i])
+
+print(tEncDic)
+
+for sign in encMessage:
+
+    if sign in alphabet:
+        decMessage += tEncDic[sign]
+    else:
+        decMessage += sign
+
+print(decMessage)
